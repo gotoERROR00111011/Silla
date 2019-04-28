@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script>
+$( document ).ready(function() {
+	var a;
+	var requestParam ="";	 
+	 //getParameter function
+	alert(location.href);
+	//alert(paramArr);
+	var paramArr = (url.substring(url.indexOf("?")+1,url.length)).split("&"); 
+
+	   for(var i = 0 ; i < paramArr.length ; i++){
+		     var temp = paramArr[i].split("="); //파라미터 변수명을 담음
+		 		alert(temp);
+		     if(temp[0].toUpperCase() == param.toUpperCase()){
+		       // 변수명과 일치할 경우 데이터 삽입
+		       requestParam = paramArr[i].split("=")[1]; 
+		       break;
+		     }
+		   }
+	   
+	$(function(){
+	  $('#uid').text('aaa');
+	});
+});
+</script>
+</head>
+<body>
+{
+	"uid":"<div id = "uid"></div>",
+	"upw":"<div id = "upw">123</div>"
+}
+
+</body>
+</html>

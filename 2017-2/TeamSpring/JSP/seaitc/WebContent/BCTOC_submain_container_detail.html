@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>SMART PORT</title>
+  <meta charset="utf-8">
+    <!--Import Google Icon Font-->
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <script>
+      $(document).ready(function() {
+           var href = location.href;
+           var hh = href.split("?")[1];
+           //alert(t_code);
+           var gg = hh.split("&&")[1];
+           var ggg= hh.split("&&")[0];
+           
+           var t_code = ggg.split("=")[1];
+           
+           var images = "<img src='images/"+t_code+".jpg' style='width: 100%; margin-top: 5px;'>";
+           //alert(images);
+           document.getElementById("images").innerHTML = images;
+           
+           var container_code = gg.split("=")[1];
+           
+           
+           alert(t_code+"1");
+           alert(container_code+" 1");
+
+           $.ajax({
+               url: "http://192.168.0.2:9000/seaitc/container_detail.do",
+               data: { 't_code': t_code,'container_code': container_code},
+               dataType: "json",
+               type: "POST",
+               success: function(json) {
+                  //alert(json.cnt_code+" 2");
+                    var cnt_code ="" ;
+                    cnt_code += json.cnt_code;
+                    var t_code = "";
+                    t_code += json.terminal_code;
+                    var bl_code = "";
+                    bl_code += json.BL_code;
+                    var cnt_state ="";
+                    cnt_state += json.cnt_state;
+                    var c_local ="";
+                    c_local += json.working_yard;
+                    c_local += "-"+ json.yard_bay;
+                    c_local += "-"+ json.yard_row;
+                    c_local += "-"+ json.yard_tir;
+                    var consignee ="";
+                    consignee += json.consignee;
+                    var send ="";
+                    send += json.send;
+                    document.getElementById("cnt_code").innerHTML = cnt_code;
+                    document.getElementById("t_code").innerHTML = t_code;
+                    document.getElementById("bl_code").innerHTML = bl_code;
+                    document.getElementById("cnt_state").innerHTML = cnt_state;
+                    document.getElementById("c_local").innerHTML = c_local;
+                    document.getElementById("consignee").innerHTML = consignee;
+                    document.getElementById("send").innerHTML = send;
+                    
+                  },      
+          error:function(xhr, ajaxOptions, thrownError){
+            alert(xhr.status);
+             alert(thrownError);
+         }
+        
+        });
+     });   
+   </script>
+    <style type="text/css">
+    h2{
+      font-weight: bolder;
+    }
+    table{
+      border: 1px solid grey;
+      text-align: center;
+      width: 90%;
+    }
+    tr td{
+      text-align: center;
+      border: 1px solid grey;
+      height: 40px;
+    }
+    th{
+      text-align: center;
+      border: 1px solid grey;
+      background-color: #EAEAEA;
+    }
+    .navbar{
+      background-color: #033f77;
+      color: white;
+    }
+    .sub_title{
+      font-weight: bolder;
+    }
+  </style>
+  </head>
+
+  <body>
+
+    <header>
+    <nav style="background-color:#1976d2;" >
+      <div class="nav-wrapper" >
+        <ul id="nav-mobile" class="left">
+          <li><a href="BCTOC_submain.html"><i class="material-icons"><div style="font-size:30px;">keyboard_arrow_left</div></i></a></li>
+        </ul>
+        <a href="main.html" class="brand-logo left"><div style= "font-size: 30px; color:white-text; font-weight: bolder;">&emsp; SMART PORT</div></a>
+        <ul id="nav-mobile" class="right">
+          <li><a href="login.html"><i class="material-icons"><div style="font-size:35px;">perm_identity</div></i></a></li>
+        </ul>
+      </div>
+    </nav>
+   </header>
+
+   <div class="container" style="margin-top:15px;">
+    <div class="row" id="images">
+    </div>
+    <div class="row">
+      <table align="center">
+        <tr>
+          <th>컨테이너 코드</th>
+          <td id="cnt_code"></td>
+        </tr>
+        <tr>
+          <th>터미널</th>
+          <td id="t_code"></td>
+        </tr>
+        <tr>
+          <th>BL코드</th>
+          <td id="bl_code"></td>
+        </tr>
+        <tr>
+          <th>상태정보</th>
+          <td id="cnt_state"></td>
+        </tr>
+        <tr>
+          <th>위치정보</th>
+          <td id="c_local"></td>
+        </tr>
+        <tr>
+          <th>수화인</th>
+          <td id="consignee"></td>
+        </tr>
+        <tr>
+          <th>송화인</th>
+          <td id="send"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="fixed-action-btn vertical">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green" href="QRcode.html"><i class="material-icons">camera_alt</i></a></li>
+      <li><a class="btn-floating blue" href="weather.html"><i class="material-icons">cloud</i></a></li>
+    </ul>
+  </div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+  </body>
+</html>
