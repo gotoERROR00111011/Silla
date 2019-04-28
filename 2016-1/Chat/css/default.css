@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	font-family:"맑은 고딕";
+	margin:0px;
+	border:0px;
+	padding:2px;
+}
+
+body{
+	background-color::#000000;
+}
+
+iframe{
+	width:100%;
+	margin:0px;
+	border:0px;
+	padding:0px;
+}
+body{
+	margin:0px;
+	border:0px;
+	padding:0px;
+}
+form{
+	margin:0px;
+	border:0px;
+	padding:0px;
+}	
+table{
+	margin:0px;
+	border:0px;
+	padding:0px;
+}
+tr{
+	margin:0px;
+	border:0px;
+	padding:0px;
+}
+td{
+	margin:0px;
+	border:0px;
+	padding:0px;
+}		
+input{
+	height:40px;
+}
+button{
+	height:40px;
+}

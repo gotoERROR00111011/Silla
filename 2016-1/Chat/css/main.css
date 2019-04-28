@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+
+#main_title{
+	background-color:#FFFFFF;
+	font-size:25px;
+	color:#000000;
+	height:30px;
+}
+
+#main_content{
+	background-color:#FFFFFF;
+	width:100%;
+	margin:0px;
+	padding:0px;
+}
+
+#main_contents{
+	background:#FFFFFF;
+	margin:0px;
+	padding:0px;
+}
+
+#main_contents_l{
+	width:auto;
+	background-color:#FFFFFF;
+}
+
+#main_contents_r{
+	width:450px;
+	background-color:#FFFFFF;
+}
