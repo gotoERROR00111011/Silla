@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <style type="text/css">
+     body{
+       background: url(images/main_img.png) no-repeat center center fixed;
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+     }
+
+     </style>
+   </head>
+
+   <body>
+     <header>
+     <nav style="background-color:#1976d2;" >
+       <div class="nav-wrapper" >
+         <div class="col s12">
+         <ul id="nav-mobile" class="left">
+           <li><a href="main.html"><i class="material-icons"><div style="font-size:30px;">keyboard_arrow_left</div></i></a></li>
+         </ul>
+         <a href="main.html" class="brand-logo left"><div style= "font-size: 30px; color:white-text; font-weight: bolder;">&emsp; SMART PORT</div></a>
+         <ul id="nav-mobile" class="right">
+           <li><a href="login.html"><i class="material-icons"><div style="font-size:35px;">perm_identity</div></i></a></li>
+         </ul>
+       </div>
+     </nav>
+    </header>
+
+    <div class="contents">
+      <h2><div align="center">지역별 항만 기상정보</div></h2>
+
+      <div class="tab_iframe_wrapper tab_iframe_map" id="tab_iframe_wrapper">
+        <iframe src="http://www.kma.go.kr/marine/port/portMap.jsp" name="tab_iframe" id="tab_iframe" width="100%" height="700px" frameborder="0"
+            marginwidth="0" marginheight="0" scrolling="auto" title=""></iframe>
+        </div>
+
+    </div>
+
+      <div class="fixed-action-btn vertical">
+        <a class="btn-floating btn-large red">
+          <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+          <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+          <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+          <li><a class="btn-floating green" href="QRcode.html"><i class="material-icons">camera_alt</i></a></li>
+          <li><a class="btn-floating blue" href="weather.html"><i class="material-icons">cloud</i></a></li>
+        </ul>
+      </div>
+
+    <script type="text/javascript">
+
+    (function(window, doc, $){
+      var tabUrl = [ { url:'http://www.kma.go.kr/marine/port/portMap.jsp', title:'항만기상정보'} ];
+      $('.port-tap a').on("click", function(e) {
+        var tab = $(this).attr('data-tab');
+        $('.port-tap a').each(function(idx, ele) {
+          if($(this).hasClass('on')) {
+            $(this).removeClass('on');
+          }
+        });
+        $(this).addClass('on');
+        if(tab == 0 || tab == 1 ){
+          if(!$('#tab_iframe_wrapper').hasClass('tab_iframe_map')) {
+            $('#tab_iframe_wrapper').addClass('tab_iframe_map');
+          }
+          if($('#tab_iframe_wrapper').hasClass('tab_iframe_other')) {
+            $('#tab_iframe_wrapper').removeClass('tab_iframe_other');
+          }
+        } else {
+          if($('#tab_iframe_wrapper').hasClass('tab_iframe_map')) {
+            $('#tab_iframe_wrapper').removeClass('tab_iframe_map');
+          }
+          if(!$('#tab_iframe_wrapper').hasClass('tab_iframe_other')) {
+            $('#tab_iframe_wrapper').addClass('tab_iframe_other');
+          }
+        }
+        $('#tab_iframe').attr('src', tabUrl[tab].url).attr('title', tabUrl[tab].title);
+        $('#tab_iframe').height(tabUrl[tab].height);
+      });
+    })(window, document, jQuery);
+
+    </script>
+
+    </div>
+
+     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+     <script type="text/javascript" src="js/materialize.min.js"></script>
+   </body>
+
+ </html>

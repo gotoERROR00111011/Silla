@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <script>
+         var href = location.href;
+         var hh = href.split("?")[1];
+
+         var gg = hh.split("&&")[1];
+         var ggg= hh.split("&&")[0];
+    		      
+         var t_code=ggg.split("=")[1];
+         var gggg =gg.split("&&")[0];
+         
+         var working_yard =gggg.split("=")[1];
+         var ggggg = href.split("&&1")[1];
+            
+         var state = ggggg.split("=")[1];
+
+       
+         $(document).ready(function() {
+    	     $.ajax({
+    	         url: "http://192.168.0.2:9000/seaitc/yard_connect.do",
+    	         data: { 't_code': t_code,'working_yard': working_yard , 'state':state},
+    	         dataType: "json",
+    	         type: "POST",
+    	         success: function(json) {
+    	        	//alert("??")
+    	         	alert(json.working_yard);
+    	         	alert(json.cnt_state);
+    	        	var code_and_state ="" ;
+    	        	code_and_state += json.working_yard;
+    	        	code_and_state += " "+ json.cnt_state;
+    	        	var container_code = "";
+    	        	container_code += json.cnt_code;
+    	        	var cnt_state = "";
+    	        	cnt_state += json.cnt_state;
+    	        	var y_bay ="";
+    	        	y_bay += json.yard_bay;
+    	        	var y_row ="";
+    	        	y_row += json.yard_row;
+    	        	var y_tir ="";
+    	        	y_tir += json.yard_tir;
+    	        	var v_ship ="";
+    	        	v_ship += json.vehicle_ship;
+    	        	var c_oper ="";
+    	        	c_oper += json.cnt_operation;
+    	        	var inOut_sep ="";
+    	        	inOut_sep += json.inOut_separation;
+    	        	var cnt_load_state ="";
+    	        	cnt_load_state += json.cnt_load_state;
+    	        	var car_num ="";
+    	        	car_num += json.car_num;
+    	        	document.getElementById("code_and_state").innerHTML = code_and_state;
+    	        	document.getElementById("container_code").innerHTML = container_code;
+    	        	document.getElementById("cnt_state").innerHTML = cnt_state;
+    	        	document.getElementById("y_bay").innerHTML = y_bay;
+    	        	document.getElementById("y_row").innerHTML = y_row;
+    	        	document.getElementById("y_tir").innerHTML = y_tir;
+    	        	document.getElementById("v_ship").innerHTML = v_ship;
+    	        	document.getElementById("c_oper").innerHTML = c_oper;
+    	        	document.getElementById("inOut_sep").innerHTML = inOut_sep;
+    	        	document.getElementById("cnt_load_state").innerHTML = cnt_load_state;
+    	        	document.getElementById("car_num").innerHTML = car_num;
+    	         },
+    	 		error:function(xhr, ajaxOptions, thrownError){
+    				alert(xhr.status);
+    	    		alert(thrownError);
+    			}
+    	     
+    	     });
+         });
+      </script>
+
+      <style type="text/css">
+        @font-face {
+        font-family: 'Busan_BADA';
+        src: url('font/BusanBada.ttf') format("truetype");
+        }
+        @font-face {
+          font-family: 'GodoB';
+          src: url('font/GodoB.ttf') format("truetype");
+        }
+        .brand-logo {
+          font-family: GodoB;
+          font-style: italic;
+          font-weight: bolder;
+        }
+        body{
+          font-family: Busan_BADA;
+        }
+        h2{
+          font-weight: bolder;
+        }
+        table{
+          margin-top: 10px;
+          border: 1px solid grey;
+          text-align: center;
+          width: 90%;
+        }  
+        tr td{
+          text-align: center;
+          border: 1px solid grey;
+          height: 40px;
+        }
+        th{
+          text-align: center;
+          border: 1px solid grey;
+          background-color: #CD3B49;
+          color: white;
+        }
+      </style>
+  </head>
+
+  <body>
+    <header>
+        <nav style="background-color:#1976d2;" >
+          <div class="nav-wrapper" >
+            <ul id="nav-mobile" class="left">
+              <li>
+                <a href="BCTOC_submain.html"><i class="material-icons">
+                  <img src="images/back.png" style="margin-top: 10px;">
+                </a>
+              </li>
+            </ul>
+            <a href="index.html" class="brand-logo">
+              <div style= "font-size:25px; color:white-text; font-weight: bolder;">SMART PORT</div>
+            </a>
+            <ul id="nav-mobile" class="right">
+              <li>
+                <a href="login.html">
+                  <img src="images/login.png" style="margin-top: 10px;">
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+          <h1 id="code_and_state" style="color: green; font-weight: bold; font-size: 50px;"></h1>
+        </div>
+        <div class="row">
+          <table align="center">
+            <tr>
+              <th>작업 컨테이너 코드</th>
+              <td id ="container_code"></td>
+            </tr>
+            <tr>
+              <th>상태정보</th>
+              <td id="cnt_state"> </td>
+            </tr>
+            <tr>
+              <th>Yard Bay</th>
+              <td id="y_bay"></td>
+            </tr>
+            <tr>
+              <th>Yard Row</th>
+              <td id ="y_row"></td>
+            </tr>
+            <tr>
+              <th>Yard Tir</th>
+              <td id ="y_tir"></td>
+            </tr>
+            <tr>
+              <th>모선정보</th>
+              <td id="v_ship"></td>
+            </tr>
+            <tr>
+              <th>컨테이너 선사정보</th>
+              <td id ="c_oper"></td>
+            </tr>
+            <tr>
+              <th>수출입구분 코드</th>
+              <td id="inOut_sep"></td>
+
+            </tr>
+            <tr>
+              <th>적공구분 코드</th>
+              <td id ="cnt_load_state"></td>
+            </tr>
+            <tr>
+              <th>실제차량 번호</th>
+              <td id="car_num"></td>
+            </tr>
+          </table>
+        </div>
+    </div>
+
+    <!--fab button-->
+    <div class="fixed-action-btn vertical click-to-toggle">
+        <a class="btn-floating btn-large red">
+          <img src="images/add.png" style="font-size: 30px; margin-top: 15px;">
+        </a>
+        <ul>
+          <li>
+            <a class="btn-floating green" href="QR_code.html">
+              <img src="images/qrcode.png" style="margin-top: 8px;">
+            </a>
+          </li>
+          <li>
+            <a class="btn-floating blue" href="weather.html">
+              <img src="images/weather.png" style="margin-top: 8px;">
+            </a>
+          </li>
+        </ul>
+    </div>
+    <!--fab button--> 
+  </body>
+</html>

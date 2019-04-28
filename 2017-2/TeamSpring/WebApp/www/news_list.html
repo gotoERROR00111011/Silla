@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head class="white">
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+      <style type="text/css">
+
+      .container {
+        margin-top: 30px;
+        padding-top: 14px;
+      }
+
+
+      body{
+        line-height:2em;
+        font-family:"맑은 고딕";
+      }
+          ul, li{
+        list-style:none;
+        text-align:center;
+        padding:0;
+        margin:0;
+      }
+
+      #mainWrapper{
+        width: 100%;
+        margin: 0 auto; /*가운데 정렬*/
+      }
+
+      #mainWrapper > ul > li:first-child {
+        text-align: center;
+        font-size:14pt;
+        height:60px;
+        vertical-align:middle;
+        line-height:40px;
+      }
+
+      #ulTable {margin-top:10px;}
+
+
+      #ulTable > li:first-child > ul > li {
+        background-color:#c9c9c9;
+        font-weight:bold;
+        text-align:center;
+      }
+
+      #ulTable > li > ul {
+        clear:both;
+        padding:0px auto;
+        position:relative;
+        min-width:40px;
+      }
+      #ulTable > li > ul > li {
+        float:left;
+        font-size:10pt;
+        border-bottom:1px solid silver;
+        vertical-align:baseline;
+      }
+
+      #ulTable > li > ul > li:first-child               {width:10%;} /*No 열 크기*/
+      #ulTable > li > ul > li:first-child +li           {width:55%;} /*제목 열 크기*/
+      #ulTable > li > ul > li:first-child +li+li        {width:20%;} /*작성일 열 크기*/
+      #ulTable > li > ul > li:first-child +li+li+li     {width:15%;} /*작성자 열 크기*/
+
+      #divPaging {
+        clear:both;
+        margin:0 auto;
+        width:220px;
+        height:50px;
+      }
+
+      #divPaging > div {
+        float:left;
+        width: 30px;
+        margin:0 auto;
+        text-align:center;
+      }
+
+      .left {
+         text-align : left;
+      }
+
+      </style>
+
+      <script type="text/javascript">
+      $(document).ready(function() {
+          $('.slider').slider({
+              height: 150,
+              indicators: false
+          });
+      });
+      </script>
+
+</head>
+
+    <body class="white fontStyle">
+      <header>
+      <nav style="background-color:#1976d2;" >
+        <div class="nav-wrapper" >
+          <ul id="nav-mobile" class="left">
+            <li><a href="BCTOC_submain.html"><i class="material-icons"><div style="font-size:30px;">keyboard_arrow_left</div></i></a></li>
+          </ul>
+          <a href="main.html" class="brand-logo left"><div style= "font-size: 30px; color:white-text; font-weight: bolder;">&emsp; SMART PORT</div></a>
+          <ul id="nav-mobile" class="right">
+            <li><a href="login.html"><i class="material-icons"><div style="font-size:35px;">perm_identity</div></i></a></li>
+          </ul>
+        </div>
+      </nav>
+     </header>
+
+     <div class="slider">
+         <ul class="slides">
+             <li>
+                 <img src="images/aaa.jpg">
+                 <!-- random image -->
+                 <div class="caption center-align">
+                     <h5>부산항 컨테이너 터미널</h5>
+                     <h6 class="light grey-text text-lighten-3">매우좋아요</h6>
+                 </div>
+             </li>
+             <li>
+                 <img src="images/aa.jpg">
+                 <!-- random image -->
+                 <div class="caption left-align">
+                     <h5>부산항 컨테이너 터미널</h5>
+                     <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                 </div>
+             </li>
+             <li>
+                 <img src="images/aaa.jpg">
+                 <!-- random image -->
+                 <div class="caption right-align">
+                     <h5>부산항 컨테이너 터미널</h5>
+                     <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                 </div>
+             </li>
+             <li>
+                 <img src="images/aa.jpg">
+                 <!-- random image -->
+                 <div class="caption center-align">
+                     <h5>부산항 컨테이너 터미널</h5>
+                     <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                 </div>
+             </li>
+         </ul>
+     </div>
+
+     <div class="container grey lighten-3" style="width: 100%; height: 60px; font-size: 25px; padding-left: 10px; margin-top: 10px;">공지사항</div>
+
+     <div id="mainWrapper" style="margin-top: 20px;">
+
+     <ul id ="ulTable">
+               <li>
+                   <ul>
+                       <li>No</li>
+                       <li>제목</li>
+                       <li>작성일</li>
+                       <li>작성자</li>
+                   </ul>
+               </li>
+
+               <li>
+                   <ul>
+                       <li>1</li>
+                       <li class="left"><a href="news3.html"><div style="color: black;">4대 항만공사, 평창올림픽 성공에 힘</div></a></li>
+                       <li>2018.01.23</li>
+                       <li>이영규</li>
+                   </ul>
+               </li>
+
+               <li>
+                   <ul>
+                       <li>2</li>
+                       <li class="left"><a href="news2.html"><div style="color: black;">부산신항 메가포트로 진입!</div></a></li>
+                       <li>2017.12.26</li>
+                       <li>박준석</li>
+                   </ul>
+               </li>
+
+               <li>
+                   <ul>
+                       <li>3</li>
+                       <li class="left">'부산항만공사' 워크숍 개최</li>
+                       <li>2017.11.28</li>
+                       <li>이은정</li>
+                   </ul>
+               </li>
+
+               <li>
+                   <ul>
+                       <li>4</li>
+                       <li class="left">'부산항만공사' 신입사원 17명 공채</li>
+                       <li>2017.11.19</li>
+                       <li>김태형</li>
+                   </ul>
+               </li>
+
+
+               <li>
+                   <ul>
+                       <li>5</li>
+                       <li class="left"><a href="news1.html"><div style="color: black;">컨테이너 상하차 관련 전화번호 안내</div></a></li>
+                       <li>2017.10.17</li>
+                       <li>허안범</li>
+                   </ul>
+               </li>
+
+               <li>
+                   <ul>
+                       <li>6</li>
+                       <li class="left">외래 불개미 발견에 전국항만 비상</li>
+                       <li>2017.10.14</li>
+                       <li>권혁준</li>
+                   </ul>
+               </li>
+
+               <li>
+                   <ul>
+                       <li>7</li>
+                       <li class="left">인천시 '항만 경쟁력 강화' 팔 걷었다</li>
+                       <li>2017.09.29</li>
+                       <li>함지훈</li>
+                   </ul>
+               </li>
+
+               <li>
+                   <ul>
+                       <li>8</li>
+                       <li class="left">'울산항만공사' 워크숍 개최</li>
+                       <li>2017.09.11</li>
+                       <li>임현택</li>
+                   </ul>
+               </li>
+
+               <li>
+                   <ul>
+                       <li>9</li>
+                       <li class="left">'BPA' UKR항만공사와 MOU 채결</li>
+                       <li>2017.09.03</li>
+                       <li>정재헌</li>
+                   </ul>
+               </li>
+
+               <li>
+                   <ul>
+                       <li>10</li>
+                       <li class="left">캄보디아 차관보 부산항만공사 방문</li>
+                       <li>2017.09.01</li>
+                       <li>천기원</li>
+                   </ul>
+               </li>
+
+     </ul>
+
+       <li>
+           <div id="divPaging">
+               <div>◀</div>
+               <div><b>1</b></div>
+               <div>2</div>
+               <div>3</div>
+               <div>4</div>
+               <div>5</div>
+               <div>▶</div>
+           </div>
+       </li>
+
+        <hr>
+     </div>
+
+     <div class="fixed-action-btn vertical click-to-toggle">
+         <a class="btn-floating btn-large red">
+           <i class="large material-icons">mode_edit</i>
+         </a>
+         <ul>
+             <li><a class="btn-floating red" href="news_list.html"><i class="material-icons">insert_chart</i></a></li>
+             <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+             <li><a class="btn-floating green" href="QR_code.html"><i class="material-icons">camera_alt</i></a></li>
+             <li><a class="btn-floating blue" href="weather.html"><i class="material-icons">cloud</i></a></li>
+         </ul>
+     </div>
+
+     </body>
+</html>

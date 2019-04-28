@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>SMART PORT</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<script src="js/materialize.min.js">	</script>
+	<script>
+		function aa() {
+			$.ajax({
+				url:"http://192.168.0.2:9000/seaitc/login.do",
+				data:$("form").serialize(),
+				dataType:"json",
+				type:"POST",
+				success:function(json){
+					var a= json.id;
+					if(!a){
+						alert("정확한 아이디 비밀번호를 입력해주세요");
+						window.location.href="login.html";
+					}
+					else{
+						console.log(json.id,json.pw);
+						alert(json.id+"님 환영합니다");
+						sessionStorage.setItem("ids", json.id); 
+				/* sessionStorage.setItem("level", json.level); 
+				sessionStorage.setItem("t_code", json.t_code); 
+				sessionStorage.setItem("level", json.level); 
+				sessionStorage.setItem("t_code", json.t_code); */
+						var b= sessionStorage.getItem("ids");
+						alert(b);
+						console.log(b);
+						console.log(sessionStorage.getItem("ids")+"a");
+						window.location.href="index.html";
+					}
+				},
+				error:function(xhr, ajaxOptions, thrownError){
+					alert(xhr.status);
+					alert("정확한 아이디 비밀번호를 입력해주세요");
+				}
+				
+				});
+			}
+	</script>
+	<style type="text/css">
+		@font-face {
+        font-family: 'Busan_BADA';
+        src: url('font/BusanBada.ttf') format("truetype");
+	    }
+	    @font-face {
+	        font-family: 'GodoB';
+	        src: url('font/GodoB.ttf') format("truetype");
+	    }
+	    .brand-logo {
+	        font-family: GodoB;
+	        font-style: italic;
+	        font-weight: bolder;
+	      }
+	    body{
+	        font-family: Busan_BADA;
+	    }
+	</style>
+</head>
+<body>
+	<nav style="background-color:#1976d2;">
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo center">Smart Port</a>
+            <ul id="nav-mobile" class="left">
+                <li>
+                    <a href="index.html">
+                        <img src="images/back.png" style="margin-top: 15px;">
+                    </a>
+                </li>
+            </ul>
+            <ul id="nav-mobile" class="right">
+                <li>
+                    <a href="login.html">
+                        <img src="images/login.png" style="margin-top: 15px;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+	<div style="margin: 25px;"></div>
+	<div id="login-page" class="row" style="margin:0;padding:0; ">
+		<div class="col s12 z-depth-0 card-panel">
+			<div class="row">
+				<div class="input-field col s12 center">
+					<p style="font-size:2rem;">로그인</p>
+				</div>
+			</div>
+			<form>
+			<div class="row">
+				<div class="input-field col s12">
+					<!-- <i class="material-icons prefix">email</i> -->
+					<input id="id" name="id" type="text" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;); cursor: auto;"/>
+					<label for="id" data-error="wrong" class="center-align" data-success="right">아이디</label>            
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<!-- <i class="material-icons prefix">vpn_key</i> -->
+					<input id="password" name="pw" type="password" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);"/>
+					<label for="password">비밀번호</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s12" >
+					<input type="button" value="로그인" onclick="aa();" style="font-size:17px; height:40px" id="id_login" class="btn waves-effect waves-light col s12"/>
+					
+				</div>
+			</div>
+		</div>
+		</form>
+	</div>
+
+
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('ul.tabs').tabs();
+		$('#yard_statePG').hide();
+	});  
+</script>
+    
+</body>
+</html>

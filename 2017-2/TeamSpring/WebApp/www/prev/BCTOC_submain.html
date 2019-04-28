@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>SMART PORT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <script src="js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            var href = location.href;
+            var hh = href.split("?")[1];;
+            var t_code = hh.split("=")[1];
+            var session_id = sessionStorage.getItem("ids");
+
+            $("#yard_statePG").hide();
+            
+            
+            $(document).on('click', ".jakup",function(){
+            	var test = $(this).attr('id');
+            	//alert(test);
+            	//alert(t_code);
+            	location.href = "BCTOC_submain_yard_detail.html?t_code="+t_code+"&&working_yard="+test+"&&1state=jakup";
+            });
+
+            $(document).on('click', ".sago",function(){
+            	var test = $(this).attr('id');
+            	//alert(test);
+            	//alert(t_code);
+            	location.href = "BCTOC_submain_yard_detail.html?t_code="+t_code+"&&working_yard="+test+"&&1state=sago";
+            });
+            
+            $(document).on('click', ".container_detail",function(){
+                var test = $(this).attr('id');
+                alert(test);
+                //alert(t_code);
+                location.href = "BCTOC_submain_container_detail.html?t_code="+t_code+"&&container_code="+test;
+            });
+
+            $(document).on('click', ".container_detail",function(){
+                var test = $(this).attr('id');
+                alert(test);
+                //alert(t_code);
+                location.href = "BCTOC_submain_container_detail.html?t_code="+t_code+"&&container_code="+test;
+            });
+            
+            $.ajax({
+                url: "http://192.168.0.2:9000/seaitc/terminal_connect.do",
+                data: { 't_code': t_code },
+                dataType: "json",
+                type: "POST",
+                success: function(json) {
+                    /* for (var i=0; i < Object.keys(json).length; i++) {
+                      //alert("악");
+                  } */
+                  var x = "";
+                  var y = "";
+                  var a = "";
+
+                  var yard_arr = json.yard.length;
+                  var yard_state = "";
+                  var port_state = "";
+                  var f = 0 ;
+                  var sum_of = 0;
+    				//alert(yard_arr);
+    				var a = yard_arr/3;
+    				//alert(a);
+                  for (var b=0;b<a;b++) {
+
+                     yard_state += "<div class='row'>";
+                     for(var s=0; s<3; s++){
+                         if( json.yard[f].port_state =="사고발생" )
+                         {
+                          yard_state += "<div class='col s4 center-align yard_statePG_accident sago' id ='"+json.yard[f].working_yard+"' >";
+                          yard_state += "<p>"+json.yard[f].working_yard+" "+json.yard[f].port_state+"</p>";
+                      }
+                      else if(json.yard[f].port_state =="작업중"){
+                          yard_state += "<div class='col s4 center-align yard_statePG_working jakup' onclick='aaa('"+json.yard[f].working_yard+"');' id ='"+json.yard[f].working_yard+"' >";
+                          yard_state += "<p class='jakup' id='jakup2'>"+json.yard[f].working_yard+" "+json.yard[f].port_state+"</p>";
+                      }
+                      else
+                      {
+                          yard_state += "<div class='col s4 center-align yard_statePG_basic'>";
+                          yard_state += "<p>"+json.yard[f].working_yard+"</p>";
+                      }
+
+                      yard_state += "<table class='centered' style='padding: 0px;'>";
+                      yard_state += "<tbody>";           
+                      yard_state += "<tr>";                
+                      yard_state += "<td>1</td>";                    
+                      yard_state += "<td>2</td>";                    
+                      yard_state += "<td>3</td>";                    
+                      yard_state += "</tr>";                
+                      yard_state += "<tr>";                
+                      yard_state += "<td>1</td>";					
+                      yard_state += "<td>2</td>";                    
+                      yard_state += "<td>3</td>";                    
+                      yard_state += "</tr>";                
+                      yard_state += "</tbody>";			
+                      yard_state += "</table>";       
+                      yard_state += "</div>";
+                      f++
+
+                  }
+                  yard_state += "</div>";
+
+              }
+                    //console.log(yard_state);
+                    document.getElementById("yard_statePG").innerHTML = yard_state;
+
+                    for (j in json.yard) {
+                    	
+                        x += "<tr>"
+                        x += " <td>" + json.yard[j].working_yard + "</td> ";
+                        x += " <td>" + json.yard[j].goals_working + "</td> ";
+                        x += " <td>" + json.yard[j].goals_ship + "</td> ";
+                        x += " <td>" + json.yard[j].present_working + "</td> ";
+                        x += " <td>" + json.yard[j].present_ship + "</td> ";
+                        x += "</tr>"
+                       // console.log(json.yard[j].present_ship);
+
+
+                   }
+                   document.getElementById("YARD").innerHTML = x;
+
+                   for (k in json.container) {
+
+                     y += "<tr class ='container_detail' id = '"+json.container[k].cnt_code+"''>";
+                     y += " <td>" + json.container[k].cnt_code + "</td> ";
+                     y += " <td>" + json.container[k].cnt_state + "</td> ";
+                     y += " <td>" + json.container[k].w_time + "</td> ";
+                     y += " <td>" + json.container[k].vehicle_ship + "</td> ";
+                     y += "</tr>"
+                        //console.log(json.container[k].cnt_code);
+                    }
+
+                    document.getElementById("CONTRAINER").innerHTML = y;
+
+                    for (m in json.ship) {
+
+                        a += "<tr>"
+                        a += "<td style='height: 50px;'> <img id='img_shipping' src='images/shipping.png'></td> "
+                        a += " <td>" + json.ship[m].ship_name + "</td> ";
+                        a += " <td>" + json.ship[m].in_date + "</td> ";
+                        a += " <td>" + json.ship[m].out_date + "</td> ";
+                        a += " <td>" + json.ship[m].max_work + "/" + json.ship[m].now_wokr + "/" + json.ship[m].rest_work + "</td>";
+                        a += "</tr>"
+                        //console.log(json.ship[m].ship_name);
+                    }
+
+                    document.getElementById("SHIP").innerHTML = a;
+                }
+            });   
+        });
+        function show_yard_statePG() {
+
+ var position = sessionStorage.getItem("ids");
+    	//alert(position+" ");
+    	//consol.log(position);
+    	if(!position){
+    		//$("#yard_statePG").hide();
+    		//$("#part_of_yard").show();
+    		alert("권한이 없거나 로그인이 필요합니다.");
+    	}else{
+    		$("#part_of_yard").hide();
+    		$("#yard_statePG").show();
+    	}
+        }
+        
+        function yard_initialization(){
+    	$("#part_of_yard").show();
+      $("#yard_statePG").hide();
+        }
+  
+        $('ul.tabs').tabs();
+    </script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Busan_BADA';
+        src: url('font/BusanBada.ttf') format("truetype");
+    }
+    @font-face {
+        font-family: 'GodoB';
+        src: url('font/GodoB.ttf') format("truetype");
+    }
+    .brand-logo {
+        font-family: GodoB;
+        font-style: italic;
+        font-weight: bolder;
+      }
+    body{
+        font-family: Busan_BADA;
+    }
+    .sub_title {
+        font-weight: bolder;
+    }
+
+    .table_h {
+        background-color: #EAEAEA;
+    }
+
+    #img_logo {
+        width: 100%;
+        height: 100%;
+    }
+
+    #img_shipping {
+        margin: 0px 0px 0px 0px;
+        height: 50px;
+    }
+
+    .yard_statePG_basic tr td {
+        border: 1px solid black;
+        padding: 0px;
+        color: black;
+    }
+
+    .yard_statePG_basic p {
+        color: black;
+    }
+
+    .yard_statePG_working tr td {
+        border: 2px solid green;
+        padding: 0px;
+        color: green;
+        font-weight: bolder;
+    }
+
+    .yard_statePG_working p {
+        color: green;
+        font-weight: bolder;
+    }
+
+    .yard_statePG_accident tr td {
+        border: 2px solid red;
+        padding: 0px;
+        color: red;
+        font-weight: bolder;
+    }
+
+    .yard_statePG_accident p {
+        color: red;
+        font-weight: bolder;
+    }
+    </style>
+</head>
+
+<body>
+    <nav style="background-color:#1976d2;">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Smart Port</a>
+            <ul id="nav-mobile" class="left">
+                <li>
+                    <a href="index.html">
+                        <img src="images/back.png" style="margin-top: 15px;">
+                    </a>
+                </li>
+            </ul>
+            <ul id="nav-mobile" class="right">
+                <li>
+                    <a href="login.html">
+                        <img src="images/login.png" style="margin-top: 15px;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- <nav style="background-color:#1976d2;" >
+        <div class="nav-wrapper" >
+          <ul id="nav-mobile" class="left">
+            <li>
+              <a href="BCTOC_submain.html"><i class="material-icons">
+                <img src="images/back.png" style="margin-top: 10px;">
+              </a>
+            </li>
+          </ul>
+          <a href="index.html" class="brand-logo">
+            <div style= "font-size: 30px; color:white-text; font-weight: bolder;">SMART PORT</div>
+          </a>
+          <ul id="nav-mobile" class="right">
+            <li>
+              <a href="login.html">
+                <img src="images/home.png" style="margin-top: 10px;">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav> -->
+
+    <div style="margin: 25px;"></div>
+    <div class="row center-align">
+        <div class="col s4">
+            <img id="img_logo" src="images/Logo_BCTOC.png">
+        </div>
+        <div class="col s8 center-align">
+            <div class="row" style="margin-bottom: 0px;">
+                <h5 style="font-weight: bolder;">허치슨 부산 터미널</h5>
+            </div>
+            <div class="row">
+                <div class="col s3 sub_title">주소</div>
+                <div class="col s9">부산광역시 동구 중장대로 314(좌천동)</div>
+            </div>
+            <div class="row">
+                <div class="col s3 sub_title">연락처</div>
+                <div class="col s9">051-630-8200</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- tab -->
+    <div class="row">
+        <div class="row">
+            <ul class="tabs">
+                <li class="tab col s4">
+                    <a class="active" href="#yard_play" style="padding: 0px;" onClick="yard_initialization();">야드 작업 현황</a>
+                </li>
+                <li class="tab col s4">
+                    <a class="" href="#ship_play" style="padding: 0px;">본선 작업 현황</a>
+                </li>
+                <li class="tab col s4">
+                    <a class="" href="#container_search" style="padding: 0px;">컨테이너 검색</a>
+                </li>
+            </ul>
+        </div>
+        <div id="yard_play" >
+        	<div id="part_of_yard">
+	            <p style="color: #BDBDBD; margin-left: 5px;">
+	                *작업블록 선택시 상세정보를 확인하실 수 있습니다.
+	            </p>
+	            <table class="bordered centered">
+	                <thead class="table_h">
+	                    <tr>
+	                        <th rowspan="2" onClick="show_yard_statePG();">작업블록</th>
+	                        <th colspan="2">목표량</th>
+	                        <th colspan="2">현재량</th>
+	                    </tr>
+	                    <tr>
+	                        <th>반출입</th>
+	                        <th>본선</th>
+	                        <th>반출입</th>
+	                        <th>본선</th>
+	                    </tr>
+	                </thead>
+	                <tbody id="YARD">
+	                </tbody>
+            	</table>
+            </div>
+            <div id="yard_statePG">
+	            
+        	</div>
+        </div>
+        <div id="ship_play">
+            <table class="bordered centered responsive-table row" style="padding: 0px 0px 0px 0px;">
+                <thead class="table_h">
+                    <tr>
+                        <th>선석</th>
+                        <th>선박명</th>
+                        <th>입항일시</th>
+                        <th>출항일시</th>
+                        <th>양하 작업수</th>
+                    </tr>
+                </thead>
+                <tbody id="SHIP">
+
+                </tbody>
+            </table>
+        </div>
+        <div id="container_search" class="col s12">
+            <div class="row valign-wrapper">
+                <div class="col s8">
+                    <input placeholder="container code" id="first_name" type="text" class="validate valid">
+                </div>
+                <div class="col s4 valign-wrapper">
+                    <a class="waves-effect waves-light btn">조회</a>
+                </div>
+            </div>
+            <table class="bordered centered">
+                <thead class="table_h">
+                    <tr>
+                        <td>코드번호</td>
+                        <td>상태정보</td>
+                        <td>작업일시</td>
+                        <td>모선정보</td>
+                    </tr>
+                </thead>
+                <tbody id="CONTRAINER">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- tab -->
+</body>
+
+
+</html>

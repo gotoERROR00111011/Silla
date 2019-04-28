@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head class="white">
+    <!-- jQuery -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="js/materialize.min.js"></script>
+    <!-- icon -->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+    <style>
+    @font-face {
+      font-family: 'Busan_BADA';
+      src: url('font/BusanBada.ttf') format("truetype");
+    }
+    @font-face {
+      font-family: 'GodoB';
+      src: url('font/GodoB.ttf') format("truetype");
+    }
+
+
+    .brand-logo {
+      font-family: GodoB;
+      font-style: italic;
+      font-weight: bolder;
+    }
+
+    .fontStyle {
+      font-family: Busan_BADA;
+    }
+
+    .terminalBtn {
+
+      height: 80px;
+      border-radius: 12px;
+      font-size: 15px;
+
+    }
+    .terminalCode{
+     font-size: 30px;
+     border:1px solid #EAEAEA;
+    } 
+
+    div.slide-left {
+      width:100%;
+    }
+
+    div.slide-left p {
+      animation: slide-left 5s;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes slide-left {
+      from {
+        margin-left: 100%;
+        width: 100%;
+      }
+
+      to {
+        margin-left: 0%;
+        width: 100%;
+      }
+    } /*42~62 : Text-Slide */
+
+    .card-panel {
+      padding-top: 10px;
+      padding-right: 1px;
+      padding-left: 1px;
+      padding-bottom: 29px;
+      -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0), 0 1px 5px 0 rgba(0,0,0,0), 0 3px 1px -2px rgba(0,0,0,0); */
+
+    }
+    </style>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+       var position = sessionStorage.getItem("ids");
+       //alert(position+" ");
+       //consol.log(position);
+       if(!position){
+          $("#logout_icon").hide();
+       }else{
+          $("#login_icon").hide();
+       }
+
+        $(".terminalCode").click(function() {
+            var t_code =$(this).attr("id");            
+              sessionStorage.setItem("t_code", t_code);
+            //alert(t_code)
+            var aa= "BCTOC_submain.html?t_code="+t_code;
+            location.href=aa;
+        });
+
+       
+        $('.slider').slider({
+            height: 150,
+            indicators: false
+        });
+    });
+    </script>
+</head>
+
+<body class="white fontStyle">
+  <header>
+    <nav style="background-color:#1976d2;" >
+      <div class="nav-wrapper" >
+        <a href="index.html" class="brand-logo left"><div style= "font-size: 30px; color:white-text; font-weight: bolder;">SMART PORT</div></a>
+        <ul id="nav-mobile" class="right">
+          <!-- <li id="login_icon"><a href="login.html"><i class="material-icons"><div style="font-size:35px;">perm_identity</div></i></a></li>
+          <li id="logout_icon"><a href="logout.html"><i class="material-icons"><div style="font-size:35px;">perm_identity</div></i></a></li> -->
+          <li id="login_icon">
+            <a href="login.html">
+              <img src="images/login.png" style="margin-top: 13px;">
+            </a>
+          </li>
+          <li id="logout_icon">
+            <a href="login.html">
+              <img src="images/logout.png" style="margin-top: 13px;">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="images/aaa.jpg">
+        <!-- random image -->
+        <div class="caption center-align">
+          <h5>부산항 컨테이너 터미널</h5>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="images/aa.jpg">
+        <!-- random image -->
+        <div class="caption left-align">
+          <h5>부산항 컨테이너 터미널</h5>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="images/aaa.jpg">
+        <!-- random image -->
+        <div class="caption right-align">
+          <h5>부산항 컨테이너 터미널</h5>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="images/aa.jpg">
+        <!-- random image -->
+        <div class="caption center-align">
+          <h5>부산항 컨테이너 터미널</h5>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide-left" style="height:20px; font-size:17px; color:red; font-weight:bolder;">
+    <p class="valign-wrapper" style=" padding: 5px; margin-top: 5px;">
+      금일 풍량 주의보 발령. 작업시 주의 하십시오.
+    </p>
+  </div>
+
+  <div style="height: 5px; margin-top: 5px;"></div>
+  <div style="padding:0px;">
+    <div class="row" style=" margin-bottom:0px;" >
+      <div class="col s4 center-align terminalCode" id="PECTC">
+        <div class="row" style="margin-bottom: 0px;"><img src="images/test02.png" style="width: 50px; padding-top: 10px; margin-bottom:0px;"></div>
+        <div class="row terminal_bt" style="margin: 0px; font-size: 15px;">PECTC</div>
+      </div>
+      <div class="col s4 center-align terminalCode" id="DPCTC">
+        <div class="row" style="margin-bottom: 0px;"><img src="images/test01.png" style="width: 50px; padding-top: 10px; margin-bottom:0px;"></div>
+        <div class="row terminal_bt" style="margin: 0px; font-size: 15px;">DPCTC</div>
+      </div>
+      <div class="col s4 center-align terminalCode" id="BNCTC">
+        <div class="row" style="margin-bottom: 0px;"><img src="images/test03.png" style="width: 50px; padding-top: 10px; margin-bottom:0px;"></div>
+        <div class="row terminal_bt" style="margin: 0px; font-size: 15px;">BNCTC</div>
+      </div>
+    </div>
+    <div class="row" style=" margin-bottom:0px;" id="PNDKC">
+      <div class="col s4 center-align terminalCode">
+        <div class="row" style="margin-bottom: 0px;"><img src="images/test04.png" style="width: 50px; padding-top: 10px; margin-bottom:0px;"></div>
+        <div class="row terminal_bt" style="margin: 0px; font-size: 15px;">PNDKC</div>
+      </div>
+      <div class="col s4 center-align terminalCode" id="BCTOC">
+        <div class="row" style="margin-bottom: 0px;"><img src="images/test05.png" style="width: 50px; padding-top: 10px; margin-bottom:0px;"></div>
+        <div class="row terminal_bt" style="margin: 0px; font-size: 15px;">BCTOC</div>
+      </div>
+      <div class="col s4 center-align terminalCode" id="HJNPC">
+        <div class="row" style="margin-bottom: 0px;"><img src="images/test06.png" style="width: 50px; padding-top: 10px; margin-bottom:0px;"></div>
+        <div class="row" style="margin: 0px; font-size: 15px;">HJNPC</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-panel  grey lighten-5" style="margin-top: 0;">
+    <div class="container" style="border:1px solid #bdbdbd; width: 100%; background-color: white;">
+      <div class="row center-align" style="margin-bottom: 5px;">
+        <h4>:::  항만소식  :::</h4>
+      </div>
+      <ul>
+        <li>
+          <p style="padding-left: 10px;">
+            <a href="news3.html">
+              <span style="font-size:18px; color: black;">4대 항만공사, 평창올림픽 성공에 힘 보탠다.</span>
+            </a><br>울산항만공사를 비롯한 전국 4대 항만공사 (울산, 부산, 인천,
+          </p>
+        </li>
+        <hr>
+        <li>
+          <p style="padding-left: 10px;">
+            <a href="news2.html">
+              <span style="font-size:18px; color: black;">부산신항 메가포트로 진입!!</span>
+            </a>
+            <br>부산항이 올해 처음으로 컨테이너 물동량 2천만개를 넘어서
+          </p>
+        </li>
+        <hr>
+        <li>
+          <p style="padding-left: 10px;">
+            <a href="news1.html">
+              <span style="font-size:18px; color: black;">컨테이너 상하차 관련 전화번호 안내</span>
+            </a>
+            <br>컨테이너 상하차 관련 문의는 EMPTY와 FULL을 구분하여 아
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!--fab button-->
+  <div class="fixed-action-btn vertical click-to-toggle">
+    <a class="btn-floating btn-large red">
+      <img src="images/add.png" style="font-size: 30px; margin-top: 15px;">
+    </a>
+    <ul>
+      <li>
+        <a class="btn-floating green" href="QR_code.html">
+          <img src="images/qrcode.png" style="margin-top: 8px;">
+        </a>
+      </li>
+      <li>
+        <a class="btn-floating blue" href="weather.html">
+          <img src="images/weather.png" style="margin-top: 8px;">
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!--fab button-->
+</body>
+
+</html>
