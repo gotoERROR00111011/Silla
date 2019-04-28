@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>1만 시간의 법칙</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-storage.js"></script>
+    <script src="./js/init.js"></script>
+
+    <script>
+      $(document).ready(function(){
+
+        var space = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+        var uid = localStorage.getItem('uid');
+        var name = localStorage.getItem('name');
+        var db = firebase.database();
+
+
+        if (uid) {} 
+        else {location.href = "./signin.html";}
+
+        $("#logout").click(function(){
+          firebase.auth().signOut();
+          db.ref("/users/"+uid+"/siteOn").set(0);
+          localStorage.removeItem('uid');
+          localStorage.removeItem('name');
+          //localStorage.clear();
+          location.href = "./signin.html";
+        });
+
+        $("#new").click(function(){
+          var goal = $("#goal").val();
+          if (goal!=""){
+            db.ref("/users/"+uid+"/goals/"+goal).set({"time":0});
+            location.reload();
+          }
+        });
+
+        var state = 0;
+        var n;
+        var title;
+        $("#goal_list").on("click", ".goal_sel", function(){
+          var tkey = $(this).attr('id');
+          if (state==0){
+            title = tkey;
+            var d = new Date();
+            n = d.getTime();
+            state = 1;
+            alert(tkey + " 시작합니다!");
+            $(this).parent().parent().parent().css("background-color", "#e0f7fa");
+          } else if (state==1 && title==tkey){
+            var d = new Date();
+            var s = parseInt((d.getTime()-n)/1000);
+            var time;
+            var query = firebase.database().ref("/users/"+uid+"/goals/"+tkey);
+            query.once("value")
+              .then(function(snap){
+                snap.forEach(function(childSnap){
+                  var key = childSnap.key;
+                  var childData = childSnap.val();
+                  time = childData + s;
+                  alert(tkey + " " + time + "초 만큼 하셨습니다.");
+                  query.update({"time":time});
+                  location.reload();
+                });
+              });
+            state = 0;
+          }
+        });
+
+
+        $("#goal_list").on("click", ".goal_del", function(){
+          var key = $(this).attr('value');
+          var query = firebase.database().ref("/users/"+uid+"/goals/"+key);
+          query.remove();
+          location.reload();
+        });
+
+
+        var query = firebase.database().ref("/users/"+uid+"/goals").orderByKey();
+        query.once("value")
+          .then(function(snap){
+              snap.forEach(function(childSnap){
+              var key = childSnap.key;
+              var childData = childSnap.val();
+              var hh = parseInt((childData.time / 60) / 60);
+              var mm = parseInt((childData.time / 60) % 60);
+              var ss = childData.time % 60;
+              var str = "<div class='col s12 m12 card'>";
+              str += "<div class='icon-block'>";
+              str += "<div class='card-action'><a href='#' class='goal_del' value='"+key+"'>X</a></div>";
+              str += "<h2 class='center light-blue-text'>";
+              str += "<i class='material-icons medium'>"+key+"</i>";
+              str += "</h2>";
+              str += "<div class='center'><a href='#' id='"+key+"' class='goal_sel btn-large waves-effect waves-light cyan accent-4'>"+hh + "시간 " + mm + "분 " + ss +"초</a></div><br/>";
+              str += "</div></div>";
+              $("#goal_list").append(str);
+            });
+          });
+      });
+
+
+    </script>
+
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper cyan accent-3">
+        <a href="#" class="brand-logo">1만 시간의 법칙</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li id="logout"><a href="#">LogOut</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="section no-pad-bot white">
+      <div class="container">
+        <br><br>
+        <h1 class="header center black-text">전문가의 길</h1>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="목표 입력" id="goal" type="text" class="validate">
+                <label for="goal">목표</label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="row center">
+          <a href="#" id="new" class="btn-large waves-effect waves-light cyan accent-4">
+          1만 시간까지</a>
+        </div>
+        <br><br>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="section">
+        <div id="goal_list" class="row">
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer cyan lighten-5">
+      <div class="container">
+        <div class="row center">
+          <div class="col s12">
+            <h5 class="black-text">1만 시간의 법칙</h5>
+            <p class="black-text text-lighten-4">
+              전문가가 되는 길
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright cyan accent-3">
+        <div class="container center">
+          Made by Lim HyeonTaek
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

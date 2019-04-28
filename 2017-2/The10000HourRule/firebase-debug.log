@@ -1,0 +1,36 @@
+[debug] [2017-12-10T04:54:26.820Z] ----------------------------------------------------------------------
+[debug] [2017-12-10T04:54:26.825Z] Command:       /usr/local/bin/node /Users/gotoerror/.npm-global/bin/firebase serve
+[debug] [2017-12-10T04:54:26.825Z] CLI Version:   3.15.3
+[debug] [2017-12-10T04:54:26.825Z] Platform:      darwin
+[debug] [2017-12-10T04:54:26.825Z] Node Version:  v9.2.0
+[debug] [2017-12-10T04:54:26.826Z] Time:          Sun Dec 10 2017 13:54:26 GMT+0900 (KST)
+[debug] [2017-12-10T04:54:26.826Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-10T04:54:26.856Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-10T04:54:26.857Z] > authorizing via signed-in user
+[debug] [2017-12-10T04:54:26.860Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-12-10T04:54:26.860Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/sxGTJBnCspUJ0t6OeOhoZy4-hSMWkBnEPYN3BH5tvvE',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Dec 10 2017 13:54:26 GMT+0900 (KST)
+[debug] [2017-12-10T04:54:27.324Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-10T04:54:27.348Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/fir-201464032  
+ Sun Dec 10 2017 13:54:27 GMT+0900 (KST)
+[debug] [2017-12-10T04:54:29.077Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-10T04:54:29.079Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/fir-201464032/tokens  
+ Sun Dec 10 2017 13:54:29 GMT+0900 (KST)
+[debug] [2017-12-10T04:54:31.287Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/gotoerror/Dev/fire'...
+[info] 
+[debug] [2017-12-10T04:54:31.293Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/fir-201464032  
+ Sun Dec 10 2017 13:54:31 GMT+0900 (KST)
+[debug] [2017-12-10T04:54:32.727Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-10T04:54:32.728Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/633165607736/clients/_:getWebAppConfig  
+ Sun Dec 10 2017 13:54:32 GMT+0900 (KST)
+[debug] [2017-12-10T04:54:34.536Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
