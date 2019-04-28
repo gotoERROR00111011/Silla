@@ -1,0 +1,12 @@
+.popup{
+	padding:20px;
+}
+#popupFriendAdd{
+	padding: 20px;
+	width: 300px;	
+}
+#detail{
+	width: 80%;
+	padding: 30px;
+	background-color: white;
+}

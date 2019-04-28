@@ -1,0 +1,29 @@
+div{
+	margin: 0px;
+	padding: 0px;
+}
+table{
+	width: 100%;
+}
+tr{
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+td{
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+.user{
+	width: 30px;
+	float: left;
+}
+#msgbox{
+	height: 50px;
+	width: 100%;
+}
+#msg{
+	height: 50px;
+	width: 100%;
+}

@@ -1,0 +1,13 @@
+.time{
+	position: absolute;
+	right: 10px;
+}
+.user{
+	position: absolute;
+	left: 10px;
+}
+#detail{
+	width: 80%;
+	padding: 30px;
+	background-color: white;
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="js/jquery-1.5.0.mobile.min.css">   
+        <link rel="stylesheet" type="text/css" href="css/timetable.css">    
+        <link rel="stylesheet" type="text/css" href="css/bpopup.css">    
+        <link rel="stylesheet" href="themes/cyan.min.css" />
+        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
+        <script type="text/javascript" src="js/jm.js"></script>
+        <script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <script type="text/javascript" src="js/timetable.js"></script>
+        <script type="text/javascript" src="js/jquery.bpopup.min.js"></script>
+        <script type="text/javascript" src="js/geolocation.js"></script>
+        <title>TimeTable Share</title>
+    </head>
+    <body>
+        <div data-role="page">
+            <div data-role="header" data-position="fixed">
+                <h1>내 시간표</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>시간표 추가할 시간 터치</p>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>월</td>
+                        <td>화</td>
+                        <td>수</td>
+                        <td>목</td>
+                        <td>금</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td class="lecture" id="mon01"></td>
+                        <td class="lecture" id="tue01"></td>
+                        <td class="lecture" id="wed01"></td>
+                        <td class="lecture" id="thu01"></td>
+                        <td class="lecture" id="fli01"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="lecture" id="mon02"></td>
+                        <td class="lecture" id="tue02"></td>
+                        <td class="lecture" id="wed02"></td>
+                        <td class="lecture" id="thu02"></td>
+                        <td class="lecture" id="fli02"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="lecture" id="mon03"></td>
+                        <td class="lecture" id="tue03"></td>
+                        <td class="lecture" id="wed03"></td>
+                        <td class="lecture" id="thu03"></td>
+                        <td class="lecture" id="fli03"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="lecture" id="mon04"></td>
+                        <td class="lecture" id="tue04"></td>
+                        <td class="lecture" id="wed04"></td>
+                        <td class="lecture" id="thu04"></td>
+                        <td class="lecture" id="fli04"></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="lecture" id="mon05"></td>
+                        <td class="lecture" id="tue05"></td>
+                        <td class="lecture" id="wed05"></td>
+                        <td class="lecture" id="thu05"></td>
+                        <td class="lecture" id="fli05"></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td class="lecture" id="mon06"></td>
+                        <td class="lecture" id="tue06"></td>
+                        <td class="lecture" id="wed06"></td>
+                        <td class="lecture" id="thu06"></td>
+                        <td class="lecture" id="fli06"></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td class="lecture" id="mon07"></td>
+                        <td class="lecture" id="tue07"></td>
+                        <td class="lecture" id="wed07"></td>
+                        <td class="lecture" id="thu07"></td>
+                        <td class="lecture" id="fli07"></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td class="lecture" id="mon08"></td>
+                        <td class="lecture" id="tue08"></td>
+                        <td class="lecture" id="wed08"></td>
+                        <td class="lecture" id="thu08"></td>
+                        <td class="lecture" id="fli08"></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td class="lecture" id="mon09"></td>
+                        <td class="lecture" id="tue09"></td>
+                        <td class="lecture" id="wed09"></td>
+                        <td class="lecture" id="thu09"></td>
+                        <td class="lecture" id="fli09"></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td class="lecture" id="mon10"></td>
+                        <td class="lecture" id="tue10"></td>
+                        <td class="lecture" id="wed10"></td>
+                        <td class="lecture" id="thu10"></td>
+                        <td class="lecture" id="fli10"></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td class="lecture" id="mon11"></td>
+                        <td class="lecture" id="tue11"></td>
+                        <td class="lecture" id="wed11"></td>
+                        <td class="lecture" id="thu11"></td>
+                        <td class="lecture" id="fli11"></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td class="lecture" id="mon12"></td>
+                        <td class="lecture" id="tue12"></td>
+                        <td class="lecture" id="wed12"></td>
+                        <td class="lecture" id="thu12"></td>
+                        <td class="lecture" id="fli12"></td>
+                    </tr>
+                </table>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <script type="text/javascript" src="./js/footer.js"></script>
+            </div>        
+            <div data-role="popup" id="addLecture" class="popup">
+                <p class="title">강의추가</p>
+                강의명<input id="lecture_name" type="text" >
+                강의실<input id="lecture_room" type="text" >
+                교수<input id="professor" type="text" >
+                <p>&nbsp;</p>
+                <input type="button" id="add" value="추가" >
+                <input type="button" id="del" value="삭제" >
+            </div>
+        </div>
+    </body>
+</html>

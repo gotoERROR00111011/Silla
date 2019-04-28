@@ -1,0 +1,13 @@
+.popup{
+	width: 80%;
+	padding: 30px;
+	background-color: white;
+}
+.title{
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+}
+.br{
+	font-size: 5px;
+}

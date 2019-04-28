@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="utf-8">
+    	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    	<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+    	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+  		<link rel="stylesheet" href="css/themes/busanwater.min.css" />
+        <script type="text/javascript" src="cordova.js"></script>
+        <title>Hello World</title>
+    </head>
+    <body>
+		<div data-role="page" id="page1">
+			<div data-role="header" data-position="fixed">
+    			<h1>검출 성분 정보</h1>
+			</div>
+			<div data-role="content">					
+				<div data-role="collapsible-set" id="collapsible-set-1" data-mini="true">
+					<div data-role="collapsible">
+						<h4>암모니아성질소</h4>
+						<p>암모니아성 질소는 0.5㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>질산성질소</h4>
+						<p>질산성 질소는 10㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>과망간산칼륨</h4>
+						<p>과망간산칼륨 소비량은 10㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>증발잔류물</h4>
+						<p>증발잔류물은 수돗물의 경우에는 500㎎/L, 먹는염지하수 및 먹는해양심층수의 경우에는 미네랄 등 무해성분을 제외한 증발잔류물이 500㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>일반세균</h4>
+						<p>일반세균은 1mL 중 100CFU(Colony Forming Unit)를 넘지 아니할 것. 다만, 샘물 및 염지하수의 경우에는 저온일반세균은 20CFU/mL, 중온일반세균은 5CFU/mL를 넘지 아니하여야 하며, 먹는샘물, 먹는염지하수 및 먹는해양심층수의 경우에는 병에 넣은 후 4℃를 유지한 상태에서 12시간 이내에 검사하여 저온일반세균은 100CFU/mL, 중온일반세균은 20CFU/mL를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>총대장균군</h4>
+						<p>총 대장균군은 100mL(샘물·먹는샘물, 염지하수·먹는염지하수 및 먹는해양심층수의 경우에는 250mL)에서 검출되지 아니할 것. 다만, 제4조제1항제1호나목 및 다목에 따라 매월 또는 매 분기 실시하는 총 대장균군의 수질검사 시료(試料) 수가 20개 이상인 정수시설의 경우에는 검출된 시료 수가 5퍼센트를 초과하지 아니하여야 한다.</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>분원성대장균군</h4>
+						<p>대장균·분원성 대장균군은 100mL에서 검출되지 아니할 것. 다만, 샘물·먹는샘물, 염지하수·먹는염지하수 및 먹는해양심층수의 경우에는 적용하지 아니한다.</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>여시니아균</h4>
+						<p>여시니아균은 2L에서 검출되지 아니할 것(먹는물공동시설의 물의 경우에만 적용한다)</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>납</h4>
+						<p>납은 0.01㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>불소</h4>
+						<p>불소는 1.5㎎/L(샘물·먹는샘물 및 염지하수·먹는염지하수의 경우에는 2.0㎎/L)를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>비소</h4>
+						<p>비소는 0.01㎎/L(샘물·염지하수의 경우에는 0.05㎎/L)를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>세레늄</h4>
+						<p>셀레늄은 0.01㎎/L(염지하수의 경우에는 0.05㎎/L)를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>수은</h4>
+						<p>수은은 0.001㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>시안</h4>
+						<p>시안은 0.01㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>6가크롬</h4>
+						<p>크롬은 0.05㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>카드뮴</h4>
+						<p>카드뮴은 0.005㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>보론</h4>
+						<p>보론은 1.0㎎/L를 넘지 아니할 것(염지하수의 경우에는 적용하지 아니한다)</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>페놀</h4>
+						<p>페놀은 0.005㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>다이아지논</h4>
+						<p>다이아지논은 0.02㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>파라티온</h4>
+						<p>파라티온은 0.06㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>페니트로티온</h4>
+						<p>페니트로티온은 0.04㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>카바릴</h4>
+						<p>카바릴은 0.07㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>1,1,1-트리클로로에탄</h4>
+						<p>1,1,1-트리클로로에탄은 0.1㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>테트라클로로에틸렌</h4>
+						<p>테트라클로로에틸렌은 0.01㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>트리클로로에틸렌</h4>
+						<p>트리클로로에틸렌은 0.03㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>디클로로메탄</h4>
+						<p>디클로로메탄은 0.02㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>벤젠</h4>
+						<p>벤젠은 0.01㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>톨루엔</h4>
+						<p>톨루엔은 0.7㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>에틸벤젠</h4>
+						<p>에틸벤젠은 0.3㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>크실렌</h4>
+						<p>크실렌은 0.5㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>1,1-디클로로에틸렌</h4>
+						<p>1,1-디클로로에틸렌은 0.03㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>사염화탄소</h4>
+						<p>사염화탄소는 0.002㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>1,2-디브로모 클로로프로판</h4>
+						<p>1,2-디브로모-3-클로로프로판은 0.003㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>경도</h4>
+						<p>경도(硬度)는 1,000㎎/L(수돗물의 경우 300㎎/L, 먹는염지하수 및 먹는해양심층수의 경우 1,200㎎/L)를 넘지 아니할 것. 다만, 샘물 및 염지하수의 경우에는 적용하지 아니한다.</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>냄새, 맛</h4>
+						<p>냄새와 맛은 소독으로 인한 냄새와 맛 이외의 냄새와 맛이 있어서는 아니될 것. 다만, 맛의 경우는 샘물, 염지하수, 먹는샘물 및 먹는물공동시설의 물에는 적용하지 아니한다.</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>동</h4>
+						<p>동은 1㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>색도</h4>
+						<p>색도는 5도를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>세제</h4>
+						<p>세제(음이온 계면활성제)는 0.5㎎/L를 넘지 아니할 것. 다만, 샘물·먹는샘물, 염지하수·먹는염지하수 및 먹는해양심층수의 경우에는 검출되지 아니하여야 한다.</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>수소이온농도</h4>
+						<p>수소이온 농도는 pH 5.8 이상 pH 8.5 이하이어야 할 것. 다만, 샘물, 먹는샘물 및 먹는물공동시설의 물의 경우에는 pH 4.5 이상 pH 9.5 이하이어야 한다.</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>아연</h4>
+						<p>아연은 3㎎/L를 넘지 아니할 것</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>염소이온</h4>
+						<p>염소이온은 250㎎/L를 넘지 아니할 것(염지하수의 경우에는 적용하지 아니한다)</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>철</h4>
+						<p>철은 0.3㎎/L를 넘지 아니할 것. 다만, 샘물 및 염지하수의 경우에는 적용하지 아니한다.</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>망간</h4>
+						<p>망간은 0.3㎎/L(수돗물의 경우 0.05㎎/L)를 넘지 아니할 것. 다만, 샘물 및 염지하수의 경우에는 적용하지 아니한다.</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>탁도</h4>
+						<p>탁도는 1NTU(Nephelometric Turbidity Unit)를 넘지 아니할 것. 다만, 지하수를 원수로 사용하는 마을상수도, 소규모급수시설 및 전용상수도를 제외한 수돗물의 경우에는 0.5NTU를 넘지 아니하여야 한다.</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>황산이온</h4>
+						<p>황산이온은 200㎎/L를 넘지 아니할 것. 다만, 샘물, 먹는샘물 및 먹는물공동시설의 물은 250㎎/L를 넘지 아니하여야 하며, 염지하수의 경우에는 적용하지 아니한다.</p>
+					</div>
+					<div data-role="collapsible">
+						<h4>알루미늄</h4>
+						<p>알루미늄은 0.2㎎/L를 넘지 아니할 것</p>
+					</div>					
+				</div>
+			</div>			
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar" id="foot">
+					<ul>
+						<li><a href="index.html" rel="external" data-icon="location">지역</a></li>
+						<li><a href="alert.html" rel="external" data-icon="alert">주의사항</a></li>
+						<li><a href="state.html" rel="external" data-icon="delete" class="ui-btn-active">부적합성분</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

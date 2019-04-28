@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="utf-8">
+    	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    	<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+    	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+  		<link rel="stylesheet" href="css/themes/busanwater.min.css" />
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <title>Hello World</title>
+    </head>
+    <body>
+		<div data-role="page" id="page1">
+			<div data-role="header" data-position="fixed">
+    			<h1>부산 약수터</h1>
+			</div>
+			<div data-role="content">					
+				<div class="ui-field-contain">			
+					<select name="year" id="year">
+						<option value="">모든 조사 결과 (연도)</option>
+						<option value="2016">2016년</option>
+						<option value="2015">2015년</option>
+						<option value="2014">2014년</option>
+						<option value="2013">2013년</option>
+						<option value="2012">2012년</option>
+						<option value="2011">2011년</option>
+						<option value="2010">2010년</option>
+					</select>
+					<fieldset data-role="controlgroup" id="water">
+						<input name="yes" id="yes" type="checkbox"/>
+						<label for="yes" style="color:blue;">수질 상태 적합</label>
+						<input name="no" id="no" type="checkbox"/>
+						<label for="no" style="color:red;">수질 상태 부적합</label>
+					</fieldset>
+				</div>
+				<ul data-role="listview" id="listv" data-inset="true">
+					<li><a href="#" rel="external">강서구</a></li>
+					<li><a href="#" rel="external">금정구</a></li>
+					<li><a href="#" rel="external">기장군</a></li>
+					<li><a href="#" rel="external">남구</a></li>
+					<li><a href="#" rel="external">동구</a></li>
+					<li><a href="#" rel="external">동래구</a></li>
+					<li><a href="#" rel="external">부산진구</a></li>
+					<li><a href="#" rel="external">북구</a></li>
+					<li><a href="#" rel="external">사상구</a></li>
+					<li><a href="#" rel="external">사하구</a></li>
+					<li><a href="#" rel="external">서구</a></li>
+					<li><a href="#" rel="external">수영구</a></li>
+					<li><a href="#" rel="external">연제구</a></li>
+					<li><a href="#" rel="external">영도구</a></li>
+					<li><a href="#" rel="external">중구</a></li>
+					<li><a href="#" rel="external">해운대구</a></li>
+				</ul>
+			</div>			
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar" id="foot">
+					<ul>
+						<li><a href="index.html" rel="external" data-icon="location" class="ui-btn-active">지역</a></li>
+						<li><a href="alert.html" rel="external" data-icon="alert">주의사항</a></li>
+						<li><a href="state.html" rel="external" data-icon="delete">부적합성분</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

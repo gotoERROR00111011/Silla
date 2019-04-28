@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="js/jquery-1.5.0.mobile.min.css">   
+        <link rel="stylesheet" type="text/css" href="css/chat_room.css">    
+        <link rel="stylesheet" href="themes/cyan.min.css" />
+        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
+        <script type="text/javascript" src="js/jm.js"></script>
+        <script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <script type="text/javascript" src="js/chat_room.js"></script>
+        <script type="text/javascript" src="js/geolocation.js"></script>
+        <title>TimeTable Share</title>
+    </head>
+    <body>
+        <div data-role="page">
+            <div data-role="header" data-position="fixed">
+                <h1>채팅</h1>
+                <a href="./chat.html" rel="external" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all ui-btn-right"></a>
+            </div>
+
+            <div id="chat_list" data-role="main" class="ui-content">
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <table>
+                    <tr>
+                        <td><input id="msgbox" type="text"></td>
+                        <td><button id="msg">전송</button></td>
+                    </tr>
+                </table>
+            </div>      
+        </div>
+    </body>
+</html>
