@@ -5,7 +5,7 @@
 - TETRIS
 
 ## 2016-1
-- PHP Web Chatitng
+- PHP Web Chatting
 
 ## 2016-2
 - Time Table Share
