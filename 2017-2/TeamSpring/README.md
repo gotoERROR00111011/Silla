@@ -1,17 +1,22 @@
 # 지역선도대학 육성사업 제3회 창의프로젝트 경진대회
 
+## Result
 [![Youtube](http://img.youtube.com/vi/esPPDGvHPIA/0.jpg)](https://youtu.be/esPPDGvHPIA)  
 [Youtube](https://www.youtube.com/watch?v=esPPDGvHPIA)  
 
-## 항만터미널 안전 자동화 솔루션
-- 9명 참여
-- 최우수상
+![result](./Result/spring01.jpg)
+![result](./Result/단체사진.jpg)
 
-## 참여대학
-- 부산대학교
-- 부경대학교
-- 동의대학교
-- 한국해양대학교
-- 신라대학교
-- 총 20팀 참여
+## Introduction
+- 3rd Creative Project Competition for Regional Leading University Promotion
+- Team : 7
+- Grand Prize
+
+### participating university
+- Silla University
+- Pusan National University
+- Pukyong National University
+- Korea Maritime University
+- Dongui University
+- 20 Teams
 
