@@ -1,4 +1,4 @@
 # Othello
 
-신라대학교 2학년 2학기  
-프로그래밍 언어 II  
+## Introduction
+- Silla University, 2nd semester of 2th grade  
